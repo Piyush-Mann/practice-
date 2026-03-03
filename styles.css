@@ -1,0 +1,3183 @@
+/* Root scroll var updated by your script.js */
+:root { 
+  --scroll: 0; 
+  --bg: #FCFCFC;
+  --ink: #4B4C4C;
+  --max: 1100px;              /* your master content width */
+  --shell-padding: 24px;      /* side padding for all content */
+  }
+
+/*Horritontal lines 
+background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 28px,     /* spacing between lines */
+    /*#E3E3E3 28px,
+    #E3E3E3 28.5px */        /* 0.5px line */
+  /*);  */
+
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 28px;
+  background-color: var(--bg);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  /*background-color: var(--bg); */
+  font-family: 'Raleway', sans-serif;
+  box-sizing: border-box;
+}
+
+.background-wrapper {
+  background-color: #FCFCFC;
+}
+
+/* Ensure section aligns at the top when navigated via anchor */
+#about, 
+#design, 
+#research, 
+#teaching,
+#contact {
+  scroll-margin-top: 60px; /* adjust based on your header height */
+}
+
+/* ===========================
+   Page transition overlay
+   =========================== */
+.page-transition {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;         /* only active during animation */
+  z-index: 9999;
+}
+
+.page-transition__inner {
+  position: absolute;
+  inset: 0;
+  background: #FFC800;          /* match your background */
+  transform: translateY(100%);  /* start off-screen at bottom */
+}
+
+
+ /* Custom cursor circle */
+  /*.cursor {*/
+    /*position: fixed;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: transparent;*/
+    /*border: 3px solid #4B4C4C;        /* cursor color */
+    /*pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    mix-blend-mode: normal;*/
+  /*}*/
+
+/* Full-height sections (use svh for mobile toolbars) */
+.full-screen-section {
+  height: auto;
+  min-height: auto;
+  position: relative;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* HERO Section */
+.top-section {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* center horizontally */
+  justify-content: center; /* center vertically */
+  gap: 1.25rem;            /* space between logo / text / panel */
+  background: #FCFCFC;
+  position: relative;
+}
+
+/* Center both logo + text in the hero */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* Raise the group above center */
+  transform: translateY(-22vh);
+}
+
+.logo { 
+  width: 75rem; 
+  height: auto;
+  z-index: 10;
+}
+
+.logo-text {
+  font-size: clamp(.95rem, 2.25vw, 1.55rem);
+  font-weight: 800;
+  /*font-style: italic;*/
+  color: #4B4C4C;
+  -webkit-text-stroke: 1px #4B4C4C;
+  letter-spacing: 0.07em;
+  /*text-transform: uppercase;*/
+  margin: .2rem 0 0;
+}
+
+/* Animated SCROLL TO DISCOVER */
+.scroll-discover {
+  position: absolute;
+  bottom: 9.7%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Raleway", sans-serif;
+  z-index: 55;
+}
+
+.scroll-text {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #4b4c4c;
+  opacity: 0;
+  transform: translateY(12px);
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+/* Small pulsing caret (optional) */
+.scroll-text::after {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 18px;
+  background-color: #ffc800;
+  margin: 6px auto 0 auto;
+  animation: scrollPulse 1.2s infinite ease-in-out;
+  border-radius: .5px;
+}
+
+@keyframes scrollPulse {
+  0%   { transform: translateY(0); opacity: 0.9; }
+  50%  { transform: translateY(6px); opacity: 0.4; }
+  100% { transform: translateY(0); opacity: 0.9; }
+}
+
+h1 span {
+  font-size: .65rem;
+  font-weight: 300;
+  text-decoration: underline, text-stroke 2px; 
+}
+
+.white-container {
+  position: relative;
+  background-color: transparent !important;
+  overflow: hidden; /* keeps lines neatly inside */
+  
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  height: 50vh;
+  border: 0.5px solid #E3E3E3;
+  outline: 1.2px solid #4B4C4C;       /* Outer outline color */
+  outline-offset: 12px;              /* Creates the space showing background color */
+  box-shadow: -7px -7px 12px 8px rgba(0, 0, 0, 0.08);
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  overflow: hidden; /* ⬅ keeps lines contained */
+}
+
+.white-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 26px,
+    #E3E3E3 26px,
+    #E3E3E3 27px
+  );
+  opacity: 0.35;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.typing-wrap {
+  font-size: 1.9rem;
+  font-weight: 400;
+  font-style: italic;
+  color: #4B4C4C;
+  margin: 2.7rem 0 0 0; /* push it slightly lower */
+}
+
+.typing {
+  font-style: italic;
+  font-weight: 800;
+  color: #4B4C4C;
+  font-size: 1.9rem;
+}
+
+.typed-cursor {
+  display: inline-block;
+  width: .85em;/* diameter of the circle */
+  height: .85em;
+  margin-left: 4px;/* spacing from text */
+  background-color: #4B4C4C;/* circle color */
+  vertical-align: middle;/* keeps aligned with text */
+  border-radius: 50%;/* makes it round */
+  color: transparent; /* hides the "|" line */
+  text-shadow: none;
+  animation: blink-circle 0.8s infinite;
+}
+/*Reveal principles__right when scrolled into view*/
+@keyframes typed-blink {
+  0%, 50% { opacity: 1; transform: scale(1); }
+  50.01%, 100% { opacity: 0.3; transform: scale(0.9); }
+}
+
+.principles__right {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.principles__right.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Navigation inside the white container ===== */
+.site-nav {
+  position: absolute;
+  top: 2%; 
+  left: 50%;
+  transform: translateX(-50%); /* ← forces perfect centering */
+  width: max-content; /* keeps nav list tight instead of 100% width */
+  /*padding: 0 1rem 1.25rem;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 2%; /*move navigation*/
+  background-color: #fff;
+}
+
+/* Toggle (mobile) */
+.nav-toggle {
+  position: absolute;
+  left: 1rem;
+  top: .20rem;
+  width: 44.5px;
+  height: 36px;
+  border: 1.2px solid var(--ink);
+  background: #fff;
+  display: none;           /* hidden on desktop */
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+.nav-toggle .bar { width: 22px; height: 2px; background: var(--ink); display: block; transition:transform .2s, opacity .2s; }
+.nav-toggle[aria-expanded="true"] .bar:nth-child(2) { transform: rotate(45deg) translate(3px, 3px); }
+.nav-toggle[aria-expanded="true"] .bar:nth-child(3) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .bar:nth-child(4) { transform: rotate(-45deg) translate(4px, -3px); }
+
+/* List */
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0; /* no spacing between buttons */
+}
+
+/* Links */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: #4B4C4C;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: lowercase;
+  font-size: clamp(.7rem, 1.2vw, 1.13rem);
+  /* Increase button size */
+  display: inline-block;
+  width: auto;   /* makes width responsive */
+  text-align: center;
+  padding: .1rem 3.9rem;
+  background-color: transparent;
+  border: 1.2px solid #4B4C4C;
+}
+
+.nav-link:hover {
+  background-color: #FFC900;
+  color: #ffff;
+}
+
+/*degrees*/
+/*.degrees {
+  font-size: 1rem;
+  font-weight: 800;
+  font-style: italic;
+  color: #4B4C4C;
+  margin: 1rem 0 0 2rem;
+  }
+
+.degrees span {
+  font-weight: 400;
+}*/
+
+/*Hero Section Ends*/
+
+/* === Compact FAB Navigation & Fullscreen Overlay === */
+/* Don’t hide FAB by default anymore */
+body.nav-ready .fab-nav { display: grid; }
+body.is-compacted .fab-nav { display: grid; }
+
+/* ========== FAB hidden by default on DESKTOP ========== */
+@media (min-width: 1200px) {
+  .fab-nav {
+    display: none !important;
+  }
+
+  body.show-fab .fab-nav {
+    display: grid !important;
+  }
+}
+
+/* ========== */
+
+.fab-nav {
+  position: fixed;
+  right: clamp(12px, 2vw, 24px);
+  bottom: clamp(12px, 2vw, 24px);
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border: 1.2px solid #4B4C4C; /*outline*/
+  background: #FCFCFC;
+  cursor: pointer;
+  z-index: 10000;
+  transition: transform .25s ease, background-color .25s ease, border-color .25s ease;
+  outline-offset: 6px;
+
+}
+
+.fab-nav:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.15),
+    0 2px 3px rgba(0, 0, 0, 0.2) inset;
+}
+
+.fab-nav:hover { 
+  transform: scale(1.04);
+  background-color: #FFC900; 
+}
+.fab-nav:active { transform: scale(0.98); }
+.fab-nav .fab-nav__label {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: .72rem;
+}
+
+/* Morphing behavior: hide original nav when compacted */
+body.is-compacted .site-nav { 
+  opacity: 0; 
+  pointer-events: none; 
+  transition: opacity .25s ease;
+}
+
+/* Fullscreen overlay */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(251, 251, 251, 0.98);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(1px);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.01);
+  transition: opacity .28s ease, transform .28s ease;
+  z-index: 10001;
+}
+
+/* Open state toggled on <body> */
+body.menu-open .nav-overlay {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+/* Close button */
+.nav-overlay__close {
+  justify-self: end;
+  align-self: start;
+  margin: clamp(8px, 2vw, 20px);
+  width: 52px;
+  height: 52px;
+  border: 2px solid #4b4c4c;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Overlay nav */
+.overlay-nav {
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 4vw, 48px);
+}
+.overlay-nav__list {
+  list-style: none;
+  display: grid;
+  gap: clamp(10px, 2vh, 18px);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.overlay-link {
+  display: inline-block;
+  font-weight: 800;
+  text-transform: lowercase;
+  letter-spacing: .03em;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid #4B4C4C;
+  padding: .6rem 1.1rem;
+  min-width: min(66vw, 480px);
+  transition: transform .2s ease, background-color .2s ease, color .2s ease;
+}
+.overlay-link:hover {
+  background-color: #FFC900;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Accessibility & motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .fab-nav, .nav-overlay { transition: none !important; }
+}
+
+
+/* === FAB icon: two horizontal lines instead of text === */
+.fab-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 25px;        /* keep container narrow */
+  align-items: center;   /* left-align all children */
+  justify-content: center;
+}
+
+/* OPEN STATE → collapse gap so lines overlap */
+.fab-nav.is-open .fab-lines {
+  gap: 0;
+}
+
+  .fab-menu.is-open {
+  border: 1.2px solid #4B4C4C; /*outline*/
+}
+
+.fab-lines .line {
+  height: 2.5px;
+  width: 22px;                   /* same width for both lines */
+  background-color: #4B4C4C;
+  display: block;
+  transition: transform 0.2s ease, width 0.2s ease;
+  transform-origin: center center; /* rotate around center */
+}
+
+/* Top full-width line */
+/*.fab-lines .line:nth-child(1) {
+  width: 100%;
+}*/
+
+/* Bottom shorter line */
+/*.fab-lines .line:nth-child(2) {
+  width: 60%;*/   /* or any length you prefer */
+/*}*/
+
+/* Optional — Hover effect (Wonjyou-style subtle shift) */
+.fab-nav:hover .fab-lines .line:nth-child(1) {
+  transform: translateX(-2px);
+}
+
+.fab-nav:hover .fab-lines .line:nth-child(2) {
+  transform: translateX(2px);
+}
+
+/*Fab-Taggle Menu*/
+
+/* === Compact FAB Menu Panel (mini menu) === */
+.fab-menu {
+  position: fixed;
+  right: clamp(12px, 2vw, 24px);
+  bottom: calc(clamp(12px, 2vw, 24px) + 60px); /* sits just above the FAB */
+  background: #FCFCFC;
+  border: 1.2px solid #4B4C4C;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+  padding: 20px 0 30px 20px;
+  /*border-radius: 2.5px;*/
+  display: flex;
+  flex-direction: column;
+  min-width: 170px;
+  opacity: 0;
+  transform: translateY(10px) scale(0.98);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 9999;
+}
+
+/* Open state */
+.fab-menu.is-open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Links inside FAB menu */
+.fab-menu__link {
+  display: block;
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #4B4C4C;
+  white-space: nowrap;
+}
+
+.fab-menu__link:hover {
+  background-color: #FFC900;
+  color: #FFFFFF;
+}
+
+/* === FAB transforms into an X when open === */
+
+/* FAB → X when menu is open */
+.fab-nav.is-open .fab-lines .line:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.fab-nav.is-open .fab-lines .line:nth-child(2) {
+  transform: rotate(-45deg);
+  margin-top: -2.5px;   /* pull it up so the two lines overlap nicely */
+}
+
+/**/
+
+/* ==== Desktop-only FAB hide/show rules ==== */
+/* On desktop, FAB only shows when `show-fab` is present */
+@media (min-width: 1200px) {
+  body.show-fab.nav-ready .fab-nav,
+  body.show-fab.is-compacted .fab-nav { 
+    display: grid;
+  }
+}
+
+/*Spacer*/
+/*.note-spacer {
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 0;
+}*/
+
+/*.note-box {
+  width: 76%;  */               /* exact same as .white-container */
+  /*max-width: 1200px;          /* optional, matches your main content scale */*/
+ /* border: 1px solid #4B4C4C;
+  outline-offset: 6px;
+  padding: 1rem;
+  text-align: center;
+}*/
+
+/*.note-box p {
+  font-size: 1.3rem;
+  font-weight: 800;*/
+/*}*/
+/*end*/
+
+/*About*/
+.wrap-about {
+  margin-top: clamp(24px, 6vh, 80px);
+  width: 95%;
+  max-width: var(--max);
+  min-height: 100vh;     /* <-- fills full viewport height */
+  height: auto;
+  display: flex;
+  margin: 0 auto;
+  width: 90%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* vertically center the h2 and paragraph */
+  margin: 0 auto;
+  position: relative;
+  z-index: 2; 
+}
+
+.full-screen-section h2 {
+  font-size: 12rem;
+  position: relative;
+  letter-spacing: -0.0125em;     /* tighten character spacing */
+  color: #4B4C4C;
+  display: inline-block; /* keeps the shadow sized to the text */
+}
+
+.full-screen-section h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px; /* slight gap between text and shadow */
+  transform: translateX(-50%);
+  width: 90%;
+  height: 30px; /* controls oval height */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.25) 0%,
+    transparent 100%
+  );
+  filter: blur(8px); /* softens the shadow */
+  z-index: -1; /* keeps it behind the text */
+  pointer-events: none;
+  }
+
+#about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding-block: 3rem 4rem;        /* less top padding */
+
+}
+
+#about h2 {
+  margin: 0; 
+  position: relative;
+  z-index: 2; /* ensures heading stays above */
+  margin-bottom: clamp(4px, 0.6vw, 12px);
+}
+
+#about h2::after {
+  height: 12px;      /* less shadow height */
+  filter: blur(4px); /* softer */
+  bottom: -2px;      /* closer to text */
+}
+
+/* ===== Scroll Reveal + Scale for H2 ===== */
+.full-screen-section h2 {
+  position: relative;
+  font-size: 18rem; /*font-size: 28px;*/
+  font-weight: 400;
+  letter-spacing: -0.0125em;
+  /*color: #4B4C4C;*/
+  color: transparent;                    /* hide the fill */
+  -webkit-text-stroke: 3.5px #4B4C4C;   /* width and color of outline */
+  text-stroke: 3.5px #4B4C4C;           /* for wider browser support */
+
+  opacity: 0;
+  transform: translateY(90px) scale(var(--h2-scale, 1));
+  transform-origin: center top;
+  will-change: transform, opacity;
+  transition:
+    transform 200ms linear,
+    opacity 800ms ease-out;
+}
+
+.full-screen-section h2.visible {
+  opacity: 1;
+  transform: translateY(0) scale(var(--h2-scale, 1));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .full-screen-section h2,
+  .full-screen-section h2.visible {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ===== Outline → Fill Scroll Animation for About Paragraph ===== */
+.scroll-fill-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accessibility: respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-fill-text,
+  .scroll-fill-text.visible {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    background-size: 100% 100% !important; /* just show filled */
+  }
+}
+
+
+/* Paragraph block container */
+    .scroll-fill-text {
+      
+      /* layout */
+      
+      margin-top: -16rem;          /* moves text higher */
+      max-width: 110ch !important;   /* wider line measure = more words */
+      position: relative;
+      z-index: 1;
+      transform: translateY(0);   /* base position for animation */
+      text-align: left;
+      align-items: left;
+      
+
+      /* type */
+
+      font-weight: 800;
+      font-size: clamp(1.2rem, 2.6vw, 3.3rem) !important; /* reduce desktop max-size */
+      line-height: 1.28 !important;  /* tighter and more elegant */
+      /* Fade + lift the whole block in first */
+      opacity: 0;
+      transform: translateY(.10px);
+      transition: opacity .6s ease-out, transform .6s ease-out;
+    }
+    .scroll-fill-text.visible { opacity: 1; transform: translateY(0); }
+
+    /* Each line starts outlined, then fills left→right */
+    .scroll-fill-text .reveal-line {
+      display: block;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 0.16px #4B4C4C;
+      text-stroke: 0.16px #4B4C4C;
+
+      background-image: linear-gradient(90deg, var(--ink), var(--ink)); /* horizontal fill */
+      background-clip: text;
+      -webkit-background-clip: text;
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 0% 100%; /* grow width */
+
+      opacity: 0.85;
+      transform: translateY(0); /* no lift */
+      will-change: background-size, opacity, transform;
+    }
+
+    /* Reduced motion: show everything filled */
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-fill-text,
+      .scroll-fill-text.visible { transition: none !important; transform: none !important; opacity: 1 !important; }
+      .scroll-fill-text .reveal-line { background-size: 100% 100% !important; transform: none !important; opacity: 1 !important; }
+      h2, h2.visible { transition: none !important; transform: none !important; opacity: 1 !important; }
+    }
+
+/*About Section End*/
+
+/*Design Section*/
+.wrap-design {
+  margin-top: -3rem !important; /* tighten spacing to about */
+  width: 95%;
+  max-width: var(--max);
+  min-height: 100vh;     /* <-- fills full viewport height */
+  height: auto;
+  display: flex;
+  margin: 0 auto;
+  width: 90%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* vertically center the h2 and paragraph */
+  margin: 0 auto;
+  position: relative;
+  z-index: 2; 
+}
+
+.page-head .scroll-reveal {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.page-head h2 {
+  font-size: 12rem;
+  position: relative;
+  letter-spacing: -0.0125em;     /* tighten character spacing */
+  color: #4B4C4C;
+  display: inline-block; /* keeps the shadow sized to the text */
+  }
+
+.page-head h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px; /* slight gap between text and shadow */
+  transform: translateX(-50%);
+  width: 90%;
+  height: 30px; /* controls oval height */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.25) 0%,
+    transparent 100%
+  );
+  filter: blur(8px); /* softens the shadow */
+  z-index: -1; /* keeps it behind the text */
+  pointer-events: none;
+  }
+
+#design {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding-top: 0 !important;
+  padding-bottom: 1rem !important; /* keep a little breathing room */
+}
+
+.page-head h2 {
+  margin: 0; 
+  position: relative;
+  z-index: 2; /* ensures heading stays above */
+  margin-bottom: clamp(4px, 0.6vw, 12px);
+}
+
+.page-head h2::after {
+  height: 12px;      /* less shadow height */
+  filter: blur(4px); /* softer */
+  bottom: -2px;      /* closer to text */
+}
+
+/* ===== Scroll Reveal + Scale for H2 ===== */
+.page-head .scroll-reveal h2 {
+  position: relative;
+  font-size: 12rem; /*font-size: 28px;*/
+  font-weight: 800;
+  letter-spacing: -0.0125em;
+  color: transparent;                    /* hide the fill */
+  -webkit-text-stroke: 1.2px #4B4C4C;   /* width and color of outline */
+  text-stroke: 1.2px #4B4C4C;           /* for wider browser support */
+
+  opacity: 0;
+  transform: translateY(90px) scale(var(--h2-scale, 1)); /*moving "design" below coloums*/
+  transform-origin: center top;
+  will-change: transform, opacity;
+  transition:
+  transform 200ms linear,
+  opacity 800ms ease-out;
+}
+
+.page-head .scroll-reveal h2.visible {
+  opacity: 1;
+  transform: translateY(0) scale(var(--h2-scale, 1));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-head .scroll-reveal h2,
+  .page-head .scroll-reveal h2.visible {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Grid layout */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /*gap: var(--gap);*/
+}
+
+/* Scroll reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Rectangles */
+/*.col {
+  background: #ffff;
+  border: 2px solid #E3E3E3;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}*/
+
+.col {
+  background: transparent;
+  border: 0.5px solid #E3E3E3;
+  outline: 1.3px solid #4B4C4C;       /* Outer outline color */
+  outline-offset: 9px;              /* Creates the space showing background color */
+  height: 150px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  /*align-items: center;*/
+  /*text-align: center;*/
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.col span {
+  font-weight: 800;
+}
+
+.col .click {
+  font-style: italic;
+  font-weight: 600;
+  font-size: .92rem;
+  
+  /* Make underline explicit */
+  text-decoration-line: underline;
+  text-decoration-color: #ffc800;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+.video1, .powerpoint {
+   grid-row: 1 / 2;
+} 
+
+.video1 { 
+  grid-column: 1 / 2; 
+  height: 400px;
+  margin-top: 20%;
+  align-items: center;
+  background-color: #fff;
+  z-index: 2;
+}
+
+.video1 p {
+  color: #4B4C4C;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: .9rem;
+  padding-left: 3%;
+}
+
+.powerpoint { 
+  grid-column: 2 / -4;
+  grid-row: 1 / 2;
+  height: 500px;
+  margin-left: -30%;
+  background-color: #fff;
+}
+
+.powerpoint p {
+  color: #4B4C4C;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: .9rem;
+  padding-top: 3%;
+  padding-left: 3%;
+}
+
+.user {
+  grid-column: 3 / -2;
+  grid-row: 1 / 2;
+  height: 300px;
+  background-color: #fff;
+  margin-top: 5%;
+  z-index: 2;
+}
+
+.user p {
+  color: #4B4C4C;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: .9rem;
+  padding-top: 4%;
+  padding-left: 4%;
+}
+
+.layout {
+  grid-column: -2 / 5;
+  grid-row: 1 / 2;
+  margin-left: -30%;
+  height: 500px;
+  background-color: #fff;
+}
+
+.layout p {
+  color: #4B4C4C;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: .9rem;
+  padding-top: 4%;
+  padding-left: 4%;
+}
+
+/* Updated styles */
+/* Minimal styles required for the viewer and focus states.
+   Keep or merge with your existing site CSS as needed. */
+body.no-scroll { overflow: hidden; }
+
+.viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+  z-index: 9999;
+}
+.viewer.is-open { opacity: 1; pointer-events: auto; }
+
+.viewer__content {
+  max-width: min(1100px, 92vw);
+  max-height: 86vh;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  padding: 0;
+  overflow: hidden;
+  outline: 3px solid #4B4C4C;
+}
+
+.viewer__media { 
+  display: block; 
+  max-width: 100%; 
+  max-height: 86vh; 
+}
+
+/* Zoomed, scrollable mode – used only for the PowerPoint card */
+.viewer.viewer--pdf .viewer__content {
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: scroll;         /* scrolling inside viewer */
+  border-radius: 0;         /* fullscreen clean look on mobile */
+}
+
+/* Make the JPG larger than the viewport so you can scroll around */
+.viewer.viewer--pdf .viewer__media,
+.viewer.viewer--pdf img.viewer__media {
+  width: auto !important;
+  height: 600vh !important;
+  max-width: none !important;
+  max-height: none !important;
+  display: block;
+}
+
+/* Mobile: use full screen, remove rounding so it feels like a viewer */
+@media (max-width: 900px),
+       only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait),
+       only screen and (device-width: 768px) and (orientation: landscape) {
+
+  .viewer.viewer--pdf .viewer__content {
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+}
+
+.viewer__close {
+  position: absolute; top: 27px; right: 25px;
+  width: 44px; height: 44px; 
+  /*border-radius: 999px;*/
+  background: #FCFCFC; border: 2px solid #4B4C4C;
+  font-size: 28px; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+}
+.viewer__close:hover { transform: scale(1.05); }
+
+.col:hover { 
+  transform: scale(1.31); /*column scale*/
+  border: 2px solid #FFC800;
+  z-index: 9999;}
+
+/* --- Watch-reveal base --- */
+  .watch-reveal {
+    max-width:var(--max);
+    margin:0 auto;
+    text-align:center;
+    font-weight:800;
+    font-size: clamp(3.15rem, 4.15vw, 5.15rem); 
+    line-height: 2.8rem;
+    opacity:0;                  /* fade in the block */
+    transform:translateY(18px); /* gentle lift */
+    transition:opacity .6s ease, transform .6s ease;
+    letter-spacing: -0.0125em;
+    min-height: 70vh;
+    align-items: center;
+    justify-content: center;
+    padding: 9rem 0 8rem 0;
+    text-transform: uppercase;
+    background-color: transparent;
+  }
+
+
+  /* Lines start as outline with a hidden fill that grows left→right */
+  .watch-reveal .reveal-line {
+    display:inline-block;               /* needed for the mask slide */
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 3px #4B4C4C;
+    text-stroke: 3px #4B4C4C;;
+  }
+
+  /* Per-letter micro-settle (added by JS: .letter) */
+  .watch-reveal .letter {
+    display:inline-block;
+    transform:translateY(18px);
+    opacity:0;
+  }
+
+  /* When container becomes visible */
+  .watch-reveal.is-visible {
+    opacity:1;
+    transform:translateY(0);
+  }
+
+.wrap-quote::before {
+  top: 0;
+}
+
+.wrap-quote::after {
+  bottom: 0;
+}
+
+/* Per-word hover/focus fill in the design quote */
+.watch-reveal .word {
+  display: inline-block;
+  /*margin-right: 0.25ch;*/
+  /* start as outline-only to match your look */
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 3px var(--ink);
+  text-stroke: 3px var(--ink);
+  transition: -webkit-text-fill-color .1s ease, color .1s ease, transform .1s ease;
+  
+}
+
+.watch-reveal .word:hover,
+.watch-reveal .word.is-filled,
+.watch-reveal .word:focus-visible {
+  /* choose your fill: brand dark grey or ink */
+  -webkit-text-fill-color: #4B4C4C; /* brand pop on hover */
+  color: #FFC900;                   /* fallback */
+  transform: translateY(-1px);      /* tiny tactile lift (optional) */
+  outline: none;
+}
+
+/* Keyboard accessibility */
+.watch-reveal .word {
+  outline: none;
+}
+.watch-reveal .word:focus-visible {
+  box-shadow: 0 0 0 2px rgba(255, 201, 0, .4);
+  /*border-radius: 4px;*/
+}
+
+/* Horizontal section shell */
+  .hscroll {
+    position: relative;
+    width: 100%;
+    /* Height will be expanded via JS to allow enough vertical scroll
+       to "drive" the horizontal translation */
+    overflow: clip; /* prevents scrollbars in some browsers */
+    background: #FCFCFC;
+    /*border-block: 1px solid #eee;*/
+  }
+
+  /* The sticky viewport for the track */
+  .hscroll__viewport {
+    position: sticky;
+    top: 0;
+    height: 100vh;     /* pin for full-viewport effect */
+    overflow: hidden;  /* hide the offscreen panels */
+  }
+
+  /* The horizontal track that we translate */
+  .hscroll__track {
+    display: flex;
+    height: 100%;
+    will-change: transform;
+    transform: translate3d(0,0,0);
+  }
+
+  hscroll__track img {
+    height: 100vh ;
+  }
+
+  /* Panels */
+  /* Panels */
+  .panel {
+    flex: 0 0 100vw;     /* each panel = one viewport width */
+    height: 100vh;
+    display: grid;
+    place-items: left;
+    padding: clamp(24px, 4vw, 64px);
+    font-size: clamp(55px, 3.4vw, 42px);
+    font-weight: 800;
+  }
+  .panel--a { 
+    height: 100%;
+    min-height: 100vh;
+    flex: 0 0 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    background: #FCFCFC; 
+    font-size: 20.1rem;
+    font-weight: 800;
+    letter-spacing: -0.0320em;
+    color: transparent;  
+    -webkit-text-stroke: 1.2px #4B4C4C;   /* width and color of outline */
+    text-stroke: 1.2px #4B4C4C;           /* for wider browser support */         
+    text-transform: lowercase;
+    padding: 0;
+    margin: 0;
+  }
+
+  .panel--b { 
+    background: #FCFCFC;
+    font-size: 3.25rem;
+    font-style: italic;
+    line-height: 1.18;
+    font-weight: 400;
+  }
+
+  .panel--b span {
+    color: #4B4C4C;
+    font-family: "Merriweather", serif;
+    box-shadow: -7px -7px 12px 8px rgba(0, 0, 0, 0.08);
+    padding: 2.5rem;
+    font-weight: 400;
+  }
+  .panel--c { 
+    background: #4b4c4c;
+    font-size: 2rem;
+    line-height: 1.25;
+    font-weight: 400;
+    height: 100vh;
+    /*overflow-y: auto;*/
+    /*overflow-x: hidden;*/
+    overflow-y: scroll;           /* always show */
+    scrollbar-width: thin;        /* Firefox */
+    scrollbar-color: #4B4C4C;
+  }
+
+  article.panel--c {
+    color: #ffff;
+  }
+
+
+  /* Chrome/Safari/Edge custom scrollbar */
+.panel--c::-webkit-scrollbar {
+  width: 8px;                   /* scrollbar thickness */
+
+}
+
+.panel--c::-webkit-scrollbar-track {
+  background: #FCFCFC;          /* track color */
+}
+
+.panel--c::-webkit-scrollbar-thumb {
+  background-color: #ffff;    /* scroll bar color */
+  border-radius: 10px;
+  border: 2px solid #FCFCFC;    /* match your background */
+}
+
+  .panel--c span {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #ffff;
+  }
+  /* Accessibility: disable motion if user prefers */
+  @media (prefers-reduced-motion: reduce) {
+    .hscroll__track { transform: none !important; }
+    .hscroll { height: auto !important; }
+    .hscroll__viewport { position: relative; height: auto; }
+    .panel { height: auto; min-height: 60vh; }
+  }
+
+/* ===== Unified section <h2> style for ALL section headings ===== */
+
+/* Base look (outline, size, shadow-oval) applies to both 'about' and 'design' */
+.full-screen-section h2,
+.page-head h2 {
+  --h2-scale: 1.2;
+  font-size: 18rem;                /* keep your giant display size */
+  font-weight: 800;
+  letter-spacing: -0.0125em;
+  color: transparent;              /* outline only until filled */
+  -webkit-text-stroke: 1.2px #4B4C4C;
+  text-stroke: 1.2px #4B4C4C;
+  position: relative;
+  display: inline-block;
+  /* scroll-reveal starting state */
+  opacity: 0;
+  transform: translateY(10px) scale(var(--h2-scale, 1));
+  transform-origin: center top;
+  transition: transform 200ms linear, opacity 800ms ease-out;
+}
+
+/* Shared shadow oval */
+.full-screen-section h2::after,
+.page-head h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 30px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.25) 0%, transparent 100%);
+  filter: blur(8px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* When the element itself gets .visible */
+.full-screen-section h2.visible,
+.page-head h2.visible {
+  opacity: 1;
+  transform: translateY(0) scale(var(--h2-scale, 1));
+}
+
+/* If your script adds .visible to the container (e.g., .scroll-reveal on the parent), support that too */
+.scroll-reveal.visible h2 {
+  opacity: 1;
+  transform: translateY(0) scale(var(--h2-scale, 1));
+}
+
+/* Respect reduced motion once, globally */
+@media (prefers-reduced-motion: reduce) {
+  .full-screen-section h2,
+  .page-head h2,
+  .full-screen-section h2.visible,
+  .page-head h2.visible,
+  .scroll-reveal.visible h2 {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/*services*/
+/* Containers */
+.container{
+  width: min(var(--max), calc(100% - 48px));
+  margin-inline: auto;
+}
+
+/* Header */
+.section-header{
+  padding: clamp(40px, 6vw, 80px) 0 0;
+}
+
+.page-title{
+  font-weight: 800;
+  font-size: clamp(3.7rem, 4.7vw, 5.7rem); 
+  line-height: 0.9;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: -0.0125em;
+}
+
+.page-title.reveal { 
+  transform: translateY(28px); /*animation reveal*/
+}
+
+/*underline*/
+h2.page-title span {
+  color: transparent;              /* outline only until filled */
+  -webkit-text-stroke: 1.2px #4B4C4C;
+  text-stroke: 1.2px #4B4C4C;
+  /*smile-word*/
+  position: relative;
+  display: inline-block;
+}
+
+h2.page-title span {
+  --underlineW: 0%;
+}
+
+h2.page-title span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  height: 3px;
+  width: var(--underlineW);
+  background-color: #FFC800;
+}
+
+/* Underline key phrases on scroll in panel--b */
+.panel--b .underline-on-scroll {
+  position: relative;
+  text-decoration: none;
+  background-image: linear-gradient(#FFC900, #FFC900);
+  background-repeat: no-repeat;
+  background-size: 0% 5px;          /* start with no underline */
+  background-position: 0 100%;      /* underline sits under text */
+  transition: background-size 0.4s ease-out;
+}
+
+.panel--b .underline-on-scroll.is-visible {
+  background-size: 100% 2.5px;        /* full underline when visible */
+}
+
+.panel--b .underline-on-scroll {
+  display: inline;
+  padding: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+/* Underline key phrases on scroll in panel--b */
+.panel--c .underline-on-scroll {
+  position: relative;
+  text-decoration: none;
+  background-image: linear-gradient(#FFC900, #FFC900);
+  background-repeat: no-repeat;
+  background-size: 0% 5px;          /* start with no underline */
+  background-position: 0 100%;      /* underline sits under text */
+  transition: background-size 0.4s ease-out;
+}
+
+.panel--c .underline-on-scroll.is-visible {
+  background-size: 100% 4px;        /* full underline when visible */
+}
+
+.panel--c .underline-on-scroll {
+  display: inline;
+  padding: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+/* Grid */
+.services{
+  padding: clamp(24px, 3vw, 40px) 0 clamp(80px, 12vw, 140px);
+  width: 95%;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(36px, 5vw, 64px);
+  /* place grid to right similar to layout with empty left column on wide screens */
+  align-items: start;
+}
+/* On XL screens, create the large left column spacing by adding left padding */
+@media (min-width: 1100px){
+  .services-grid{ padding-left: min(28vw, 420px); }
+}
+
+/* Card styling */
+.service-card {
+  position: relative;
+  padding-top: 32px;
+  min-height: 260px;
+}
+
+.service-card h2{
+  font-size: 2rem;
+  font-weight: 800;
+  /*margin: 8px 0 12px;*/
+  letter-spacing: -0.0125em;     /* tighten character spacing */
+  line-height: 1;     /* nice tight, elegant */
+}
+.service-card ul{
+  padding: 0; margin: 0;
+  padding-left: 1.2rem;
+}
+
+.service-card li {
+  font-size: 1.2rem;
+  padding: 9px 0;
+  /*opacity: 0.95;*/
+  line-height: 1.2;
+  text-align: left;
+}
+
+ul p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+.numbers {
+font-weight: 400;
+color: #FFC800;
+}
+
+/* Reveal animation */
+.reveal{
+  opacity:0; transform: translateY(12px);
+  transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1);
+}
+.reveal.in-view{
+  opacity:1; transform:none;
+}
+.reveal:nth-child(1){ transition-delay:.15s }
+.reveal:nth-child(2){ transition-delay:.20s }
+.reveal:nth-child(3){ transition-delay:.25s }
+
+/* Center header */
+.site-header .container{
+  text-align: center;
+}
+.page-title{
+  text-align: center;
+}
+
+/* Keep services in one row with vertical dividers */
+.services-grid{
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+  text-align: center;
+  padding-left: 0;
+}
+
+.service-card{
+  flex: 1;
+  padding: 40px 28px;
+  min-height: 100%;
+}
+.service-card:last-child{
+  border-right: none;
+}
+
+/* Responsive stack */
+@media (max-width: 900px),
+       only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait),
+       only screen and (device-width: 768px) and (orientation: landscape) {
+  .services-grid{
+    flex-direction: column;
+    width: 100%;
+    margin-inline: auto;
+    overflow-x: hidden;   /* only this section, not the whole page */
+  }
+  .service-card{
+    border-right: none;
+    border-right: 0.75px solid #E3E3E3;
+  }
+  .service-card:last-child{
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 768px) {
+  h2.page-title span {
+    -webkit-text-stroke: 0.5px #4B4C4C;
+    text-stroke: 0.5px #4B4C4C;
+  }
+}
+
+/* === Inner transparent outline around each service card === */
+.service-card {
+  position: relative;
+  border-right: 1.2px solid #4B4C4C;
+  box-shadow: -5px -5px 10px 0.16px rgba(0, 0, 0, 0.08);
+}
+
+/* === Outer rectangular outline around all service cards === */
+.services-grid {
+  position: relative;
+  padding: 14px;                 /* spacing between border and cards */
+}
+
+.services-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  border: 1.2px solid #4B4C4C;
+  /*outline: 0.5px solid #E3E3E3;       /* Outer outline color */
+  outline-offset: 19px;              /* Creates the space showing background color */
+  pointer-events: none;
+}
+
+/* === Principles (Pinned Two Columns) === */
+  /* =====================================================
+     PRINCIPLES (Pinned section; two columns inside stick)
+     - The entire section occupies multiple viewports of height
+     - Inside, a sticky wrapper pins the two-column grid
+     - JS maps scroll progress to content "steps" and swaps text
+     ===================================================== */
+  section.principles {
+    /* total scrollable height = steps * viewport */
+    height: calc(var(--steps) * 70vh);
+    /*border-block: 1px solid var(--rule);*/
+    position: relative;
+    background:#FCFCFC;
+  }
+
+  .research_title {
+    display: inline-block;
+    perspective: 900px;    /* depth for 3D fold */
+    transform-style: preserve-3d;
+    backface-visibility:hidden;
+    /*white-space: pre-wrap;*/
+    /**/
+    font-size: 12rem; 
+    font-weight: 800;
+    letter-spacing: -0.0125em;
+    text-transform: lowercase;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.2px var(--ink);
+    text-stroke: 1.2px var(--ink);
+  }
+/* Each character before animation */
+  .research_title .char {
+  display: inline-block;
+  transform-origin: left center;
+  transform: rotateY(-96deg) translateY(6px) translateZ(0.001px);
+  opacity: 0;
+  backface-visibility:hidden;
+  will-change: transform, opacity;
+}
+/* When triggered, fold each letter one by one */
+.research_title.in-view .char {
+  animation: researchFoldIn 2100ms cubic-bezier(.22,1,.36,1) forwards;
+  animation-delay: calc(var(--i) * 58ms);  /* left→right stagger */
+}
+/* Hinge animation */
+@keyframes researchFoldIn {
+  0%   { transform: rotateY(-106deg) translateY(9px) translateZ(0.005px); opacity: 0; }
+  60%  { transform: rotateY(10deg)   translateY(0)    translateZ(0.005px); opacity: 1; }
+  100% { transform: rotateY(0deg)   translateY(0)    translateZ(0.001px); opacity: 1; }
+}  
+
+  /* Sticky wrapper that stays pinned while user scrolls through section */
+  .principles__sticky {
+    position: sticky;
+    top: 0;
+    height: 50vh;
+    display: grid;
+    align-items: start;
+    padding: 2vh 6vw;
+    background:#FCFCFC; /* prevents bleed-through on some browsers */
+  }
+
+  /* Two-column layout INSIDE the sticky wrapper */
+  .principles__grid {
+    display:grid;
+    grid-template-columns: minmax(260px, 480px) minmax(320px, 820px);
+    gap: clamp(24px, 5vw, 64px);
+    align-items:start;
+  }
+
+  .principles__eyebrow { 
+    text-transform: uppercase; 
+    letter-spacing:.12em; 
+    font-size:.8rem; 
+    font-weight: 400;
+    color: #FFC800; /*yellow color*/
+    margin-bottom:.2rem; 
+    padding-left: .4rem;
+  }
+
+  /*Titles*/
+  .principles__title {
+    font-size: clamp(24px, 2vw, 44px); 
+    line-height:1.1; 
+    margin-bottom:.5rem;
+    transition: opacity .25s ease, transform .25s ease; 
+    will-change: opacity, transform;
+    padding-left: .4rem;
+  }
+ 
+  /*body text*/
+  .principles__body {
+    max-width: 62ch;
+    font-size: clamp(16px, 1.7vw, 21px);
+    transition: opacity .25s ease, transform .25s ease; 
+    will-change: opacity, transform;
+    padding-left: .4rem;
+  }
+ 
+  @media (max-width: 1100px) {
+    .principles__grid { grid-template-columns: 1fr; }
+    .principles__sticky { padding: 12vh 6vw; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .principles__title, .principles__intro, .principles__body, .principles__aside { transition: none; }
+  }
+/* === End Principles === */
+
+/*Contant*/
+.contact {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  flex-direction: column;
+  background-color: #FCFCFC;
+   
+  color: #4B4C4C;
+  /*min-height: 100vh;*/
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1rem;
+}
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 6rem;
+  width: 100%;
+  max-width: none;
+  align-items: center;
+}
+
+/* Adjust spacing so both parts appear as one section */
+.contact--main {
+  min-height: 100vh;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  background: #FCFCFC;
+}
+
+.contact--studio {
+  background: #4B4C4C;
+  color: #FCFCFC;
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}
+
+.contact-right {
+  text-align: left;
+  margin-top: .1rem;  /*move upward – adjust value as needed */
+}
+
+.contact-logo {
+  width: 320px;          /* adjust size as needed */
+  height: auto;
+  margin-bottom: 2.1rem; /* spacing between logo + headline */
+  display: block;
+}
+
+.contact-line {
+  width: 100%;                  /* same width as the text column */
+  height: 3px;
+  background-color: #E3E3E3;    /* same ink color */
+  margin-top: 1.5rem;           /* space below the headline */
+  margin-bottom: 1rem;          /* space before the form */
+}
+
+.weight-800 {
+  font-weight: 600;
+}
+
+.contact-quote {
+  font-size: 1.06rem;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.contact-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.contact-info {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+/*.contact-social a {
+  color: red;
+  text-decoration: none;
+  font-size: 1.3rem;
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+}
+*/
+/*.contact-social a:hover {
+  color: #4B4C4C;
+}*/
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1.2px solid #4B4C4C;
+  color: #4B4C4C;
+  padding: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #4B4C4C;
+  opacity: 0.8;
+}
+
+.contact-form textarea {
+  min-height: 100px;
+  resize: none;
+}
+
+.contact-submit {
+  margin-top: 5rem;
+  background: transparent;
+  border: 1.2px solid #4B4C4C;
+  color: #4B4C4C;
+  padding: 0.75rem 1.5rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-submit:hover {
+  background: #FFC800;
+  color: #fff;
+}
+
+/* ====== Studio-style Contact (dark, centered quote, bottom link bar) ====== */
+.contact.contact--studio {
+  all: unset;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  min-height: 10vh;
+  /*background: #4B4C4C;*/
+  background: transparent;
+  box-shadow: -7px -7px 12px 8px rgba(0, 0, 0, 0.08);
+  color: #FCFCFC;
+  position: relative;
+  padding: 0;
+}
+
+.contact--studio * {
+  background: transparent;
+  color: inherit;
+}
+
+.contact__bottom {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 2rem;
+  padding: 1.25rem clamp(14px, 3.2vw, 36px);
+  border-top: 1px solid rgba(238, 223, 203, 0.12);
+}
+
+/*.contact__links {
+  display: grid;
+  grid-auto-flow: column;
+  gap: clamp(9px, .8vw, 25px);
+  padding-left: 5%;
+}*/
+
+.contact__links {
+  /* Use flex so spacing is controlled ONLY by gap (no hidden grid behavior) */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+
+  /* tighter spacing between links */
+  gap: clamp(70px, 7vw, 96px);
+
+  /* remove the extra left offset that can look like “big gaps” */
+  padding-left: 5%;
+  margin: 0;
+  }
+
+.contact__link {
+  position: relative;
+  display: inline-block;
+  font-weight: 800;
+  font-size: clamp(.95rem, 1.6vw, 1.1rem);
+  text-decoration: none;
+  padding-bottom: .45rem;
+  color: #4B4C4C;
+}
+
+.contact__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: auto;
+  bottom: 0;
+  height: 2px;
+  width: 41%;
+  background: #FFC800;
+  transform-origin: left center;
+  transform: scaleX(1);
+  transition: transform .22s ease;
+}
+
+.contact__link:hover::after,
+.contact__link:focus-visible::after {
+  transform: scaleX(2.4);
+}
+
+.contact__copy {
+  margin: 0;
+  opacity: 0.7;
+  font-size: clamp(.82rem, 1.2vw, .95rem);
+  white-space: nowrap;
+  color: #4B4C4C;
+
+}
+
+@media (max-width: 720px) {
+  .contact__bottom {
+    grid-template-columns: 1fr;
+    row-gap: 1.25rem;
+  }
+  .contact__links {
+    grid-auto-flow: row;
+    justify-content: start;
+  }
+}
+
+/* Underline key phrases on scroll in contact-quote */
+.contact-quote .underline-on-scroll {
+  position: relative;
+  text-decoration: none;
+  background-image: linear-gradient(#FFC900, #FFC900);
+  background-repeat: no-repeat;
+  background-size: 0% 5px;          /* start with no underline */
+  background-position: 0 100%;      /* underline sits under text */
+  transition: background-size 0.4s ease-out;
+}
+
+.contact-quote .underline-on-scroll.is-visible {
+  background-size: 100% 1.75px;        /* full underline when visible */
+}
+
+.contact-quote .underline-on-scroll {
+  display: inline;
+  padding: 0;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+/*Signature*/
+.signature-container {
+  width: 230px;              /* matches typical text column width */
+  margin-top: 1.5rem;        /* spacing below quote */
+  margin-left: -1.5rem;   /* try between -1rem and -3rem */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.signature-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#signature-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#signature-path {
+  stroke-dasharray: 0;
+  stroke-dashoffset: 0;
+}
+/**/
+
+/* Hide navigation when reaching #contact */
+body.hide-nav .site-nav,
+body.hide-nav .fab-nav {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-20px);
+  transition: opacity .4s ease, transform .4s ease;
+}
+
+/* Ensure it reappears normally when not in contact section */
+.site-nav,
+.fab-nav {
+  transition: opacity .4s ease, transform .4s ease;
+}
+
+/* ---------------------------------
+   Global content width shell
+   --------------------------------- */
+.wrap-about,
+.services,
+.three-col-section,
+.contact--main,
+.contact--studio {
+  width: min(var(--max), calc(100% - (var(--shell-padding) * 2)));
+  max-width: var(--max);
+  margin-inline: auto;
+}
+
+/* ============================
+   MOBILE POSITIONING
+   ============================ */
+/* Hero + nav + FAB for mobile */
+/* Mobile: pull FAB further in and clear the safe area */
+/* Strong mobile override for FAB */
+/* Mobile adjustments for FAB nav */
+@media (max-width: 900px),
+       (min-device-width: 768px) and (max-device-width: 1366px) {
+  /* FAB button */
+  .fab-nav {
+    width: 45px;
+    height: 45px;
+    /* If you want to adjust position, uncomment and tune: */
+    /* right: 50px;  */
+    /* bottom: 80px; */
+    /* outline-offset: 4px; */
+    transform: none !important;   /* keep it on-screen */
+    /* margin-bottom: 6px; */
+  }
+
+  body.is-compacted .fab-nav {
+    bottom: 80px;                 /* keep same position when compacted */
+  }
+
+  /* Hide desktop nav in hero on mobile/iPad */
+  .site-nav {
+    display: none !important;
+  }
+}
+
+/* Extra small phones – hero layout tweaks */
+@media (max-width: 600px) {
+  /* Move hero content upward */
+  body {
+  margin-left: 0.5rem auto 0 auto !important;
+  }
+
+  .top-section {
+    justify-content: flex-start;
+    padding-top: .6rem;
+    min-height: auto;
+    height: auto;
+    overflow-x: hidden;   /* only this section */
+  }
+
+  /* Logo container */
+  .logo-container {
+    align-items: center;
+    text-align: center;
+    transform: translateY(0);
+    width: 100%;
+    padding-left: 0.1rem;
+    margin-top: 1rem;
+  }
+
+  /* Logo: large but contained */
+  .logo {
+    width: 90vw;
+    max-width: none;
+    height: auto;
+   }
+
+  /* Logo text */
+  .logo-text {
+    font-size: .95rem !important;
+    font-weight: 700;
+    line-height: 1.13;
+    margin-top: 0.45rem;
+    width: 100%;
+  }
+
+  /* White container: shorter on mobile */
+  .white-container {
+    position: relative !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important;
+    outline: .9px solid #4B4C4C; 
+
+    width: 90% !important;
+    margin: 0.5rem auto 0 auto !important;
+
+    min-height: 510px;
+    height: auto;
+    overflow: hidden !important;
+    z-index: 0 !important;
+  }
+
+  .white-container::before {
+    content: "" !important;
+    position: absolute !important;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 21px,
+      #E3E3E3 21px,
+      #E3E3E3 22px
+    ) !important;
+    background-size: 100% auto;
+    opacity: 0.35;
+    z-index: -1 !important;
+    pointer-events: none;
+  }
+
+  /* Hide desktop nav inside hero on mobile */
+  .site-nav {
+    display: none !important;
+  }
+
+  /* Show FAB nav on mobile */
+  .fab-nav {
+    display: grid !important;
+    z-index: 10000 !important;
+  }
+
+  /* Prevent desktop JS logic from hiding FAB on mobile */
+  body.nav-ready .fab-nav,
+  body.is-compacted .fab-nav {
+    display: grid !important;
+  }
+
+  .typing-wrap {
+    font-size: 1.6rem !important; /* increase for mobile */
+    line-height: 1.2;
+    margin-top: 1.4rem; /* or 0 */
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .typing {
+    font-size: 1.6rem !important; /* match typing text */
+    font-weight: 700 !important;
+    display: inline-block;
+    text-align: center !important;
+    padding: 0 5px 0 5px;
+  }
+
+  .typed-cursor {
+    display: inline-block !important; /* important: lets width/height work */
+    width: 1.9rem !important;         /* adjust to size you want */
+    height: 1.9rem !important;
+    margin-left: 6px;
+  }
+
+/* ABOUT paragraph on mobile */
+.full-screen-section h2,
+  .page-head h2 {
+    font-size: 7rem !important;   
+    -webkit-text-stroke: .5px #4B4C4C !important;
+    text-stroke: .5px #4B4C4C !important; 
+    margin-top: -1rem !important;
+  }
+
+  body {
+    font-size: 18px;   /* so 1rem = 18px on phones instead of 28px */
+  }
+    .scroll-fill-text {
+
+    /* Smaller, mobile-friendly size → more words per line */
+    /*font-size: 0.95rem !important;   /* ≈ 17px with the body rule above */
+    /*line-height: 1.45 !important;*/
+    font-size: 1rem !important; 
+
+    max-width: 32ch !important;      /* sweet-spot for mobile reading */
+    margin-inline: auto !important;
+    margin-top: -6rem !important;
+    margin-left: .5rem !important;
+
+    white-space: normal !important;  /* allow natural wrapping */
+    text-wrap: normal !important;    /* avoid the “balanced” short lines */
+  }
+
+  .scroll-fill-text .reveal-line {
+    display: inline !important;       /* <-- critical fix */
+    white-space: normal !important;
+  }
+
+  .scroll-fill-text br + .reveal-line {
+    display: block !important;      /* restore block-level lines */
+  }
+/*DESIGN GRID*/
+
+/* === Reduce spacing around DESIGN section (mobile only) === */
+  .wrap-design {
+    padding: 8rem .75rem 3rem .75rem !important;   /* tighter mobile spacing */
+    height: auto !important;
+    min-height: auto !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Pull DESIGN closer to its columns */
+  #design {
+    gap: 12rem !important;   /* ↓ smaller spacing between h2 and grid */
+    margin-top: -6.5rem !important;
+  }
+
+  /* Reduce bottom margin of the DESIGN heading */
+  #design h2 {
+    margin-bottom: 1rem !important;
+  }
+
+  /* Pull columns up */
+  .columns {
+    margin-top: -11.5rem !important;
+  }
+
+  /* === Match ABOUT scroll-reveal behavior (mobile only) === */
+  .page-head .scroll-reveal h2 {
+    --h2-scale: 1.1;
+    opacity: 0;
+    transform: translateY(16px) scale(var(--h2-scale, 1)) !important;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out !important;
+  }
+
+  .page-head .scroll-reveal h2.visible {
+    opacity: 1 !important;
+    transform: translateY(0) scale(var(--h2-scale, 1)) !important;
+  }
+
+  .col {
+  outline: .9px solid #4B4C4C;       /* Outer outline color */
+  }
+}
+
+@media (max-width: 900px),
+       only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait),
+       only screen and (device-width: 768px) and (orientation: landscape) {
+  .page-head h2 {
+    font-size: 9rem !important;    
+    }
+}
+/* Move scroll-discover up on mobile */
+@media (max-width: 900px),
+       only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait),
+       only screen and (device-width: 768px) and (orientation: landscape) {
+  .scroll-discover {
+    bottom: 17% !important;   /* adjust as needed: 14%–22% */
+    font-size: ;
+  }
+
+  .scroll-text {
+  font-size: 0.7rem;
+  font-weight: 400;
+  }
+}
+
+/* Grid layout */
+/* === MOBILE 2×2 PERFECT SQUARE GRID === */
+@media (max-width: 900px),
+       only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait),
+       only screen and (device-width: 768px) and (orientation: landscape) {
+
+  .columns {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 side-by-side */
+    grid-auto-rows: 1fr;
+    gap: 2.25rem;
+  }
+
+  .col {
+    aspect-ratio: 1 / 1;       /* perfect square */
+    width: 100%;
+    height: auto;              /* let aspect-ratio control height */
+    margin: 0;
+  }
+
+  /* remove the desktop offsets/columns on mobile */
+  .video1,
+  .powerpoint,
+  .user,
+  .layout {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    margin: 0 !important;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 900px),
+       only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait),
+       only screen and (device-width: 768px) and (orientation: landscape) {
+
+  /* Make text smaller inside all .col blocks */
+  .col p {
+    font-size: 1rem !important;   /* smaller text */
+    line-height: 1.2rem !important;  /* tighter, cleaner */
+    padding: 0.5rem !important;      /* reduce padding */
+    text-align: left;
+  }
+
+  .video1 {
+    display: flex;
+    align-items: flex-start;     /* top vertically */
+    justify-content: flex-start; /* left horizontally */
+    padding: 0.6rem !important;  /* optional: clean spacing */
+  }
+
+  .video1 p {
+    margin: 0 !important;        /* remove auto-centering margin */
+    padding: 0 !important;
+    text-align: left !important;
+  }
+}
+
+.contact-form input,
+.contact-form textarea {
+  border-bottom: .9px solid #4B4C4C;
+}
+
+.contact-submit {
+  border: .9px solid #4B4C4C;
+}
+
+
+/* ==== FINAL OVERRIDE – ensure FAB is ALWAYS visible on mobile/tablet ==== */
+/* SUPER OVERRIDE – always show FAB on phones/tablets */
+@media (max-width: 900px),
+       only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait),
+       only screen and (device-width: 768px) and (orientation: landscape) {
+  .fab-nav,
+  body.nav-ready .fab-nav,
+  body.is-compacted .fab-nav,
+  body.hide-nav .fab-nav {
+    display: grid !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    z-index: 10000 !important;
+  }
+}
+
+/* FINAL OVERRIDE: make ABOUT + DESIGN shadows identical */
+#about h2::after,
+#design.page-head h2::after,
+.page-head#design h2::after {
+  bottom: -2px !important;   /* gap between text + shadow */
+  height: 12px !important;   /* same shadow height as ABOUT */
+  filter: blur(4px) !important;  /* same softness */
+}
+
+@media (max-width: 900px),
+       only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait),
+       only screen and (device-width: 768px) and (orientation: landscape) {
+
+  .columns .col {
+    height: auto !important;
+    min-height: 140px;
+  }
+
+  /* make some taller */
+  .video1 {
+    min-height: 340px !important;
+    margin-top: -4rem !important;
+    
+  }
+  .powerpoint {
+    min-height: 470px !important;
+    margin-top: 4rem !important;  /* bigger gap under top-right square */
+  }
+
+  .user {
+    min-height: 410px !important;
+    margin-top: -24.10rem !important;  /* bigger gap under top-right square */
+  }
+
+  .layout {
+    min-height: 430px !important;
+    margin-top: -6.60rem !important;  /* bigger gap under top-right square */
+  }
+}
+
+/* MOBILE — Relational Design Quote */
+@media (max-width: 768px),
+       (min-device-width: 768px) and (max-device-width: 1366px) {
+
+  .watch-reveal {
+    max-width: 95% !important;   /* matches width of white-container */
+    margin-left: 1rem !important;;
+    margin-right: 1rem !important;
+    margin-top: -12.5rem !important;   /* move it up */
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+@media (max-width: 768px),
+       (min-device-width: 768px) and (max-device-width: 1366px) {
+
+  .watch-reveal .reveal-line {
+    font-size: 2.5rem;
+    line-height: 2rem;
+    /*-webkit-text-stroke: 1.2px #4B4C4C !important;
+    text-stroke: 1.2px #4B4C4C;*/
+  }
+}
+
+@media (max-width: 768px),
+       (min-device-width: 768px) and (max-device-width: 1366px) {
+
+  .watch-reveal .word {
+    -webkit-text-stroke: 2.5px #4B4C4C;
+    text-stroke: 2.5px #4B4C4C;
+  }
+}
+
+/*Servives*/
+@media (max-width: 600px) {
+  .services       { 
+    margin-top: -.9rem !important; 
+    z-index: 9999;
+  }
+  .section-header { 
+    margin-top: -3.75rem !important; 
+  }
+
+  .section-header h2 {
+    font-size: 2.5rem;
+  }
+
+  .service-card {
+    border-right: none !important;   /* removes vertical divider */
+  }
+  /*mobile*/
+  .services-grid::before {
+  background: transparent;
+  border: .9px solid #4B4C4C;
+}
+}
+
+@media (max-width: 600px) {
+  .service-card h2 {
+    font-size: 1.35rem !important;  /* smaller title text */
+    line-height: 1 !important;
+  }
+}
+
+@media (max-width: 900px),
+       only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait),
+       only screen and (device-width: 768px) and (orientation: landscape) {
+  .services-grid ul p {
+    font-size: 1rem !important;
+  }
+
+  .services-grid li {
+    font-size: 1rem !important;
+  }
+}
+
+/*Research*/
+@media (max-width: 700px) {
+
+  /* Reduce the total scroll height so mobile isn't too long */
+  section.principles {
+    height: calc(var(--steps) * 110vh);
+    margin-top: -5rem;
+  }
+
+  /* Research title scales down */
+  .research_title {
+    font-size: 4rem;
+    -webkit-text-stroke: .5px #4B4C4C;
+    letter-spacing: -0.01em;
+    /*padding-top: 2rem;*/
+  }
+
+  .principles__sticky {
+    height: auto;
+    padding: 4rem 1.5rem;
+  }
+
+  .principles__grid {
+    grid-template-columns: 1fr;   /* single column */
+    gap: 2rem;
+  }
+
+  .principles__title {
+    font-size: 1.9rem;
+    line-height: .95;
+    padding-left: 0;
+    margin-top: -.16rem;
+  }
+
+  .principles__body {
+    font-size: 1.1rem;
+    line-height: 1.31;
+    padding-left: 0;
+    max-width: 100%;
+  }
+
+  .principles__eyebrow {
+    font-size: .75rem;
+    padding-left: 0;
+  }
+}
+
+/*Teaching*/
+/* Mobile: make "Horizontal Section 1" responsive & vertical */
+@media (max-width: 900px),
+       only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait),
+       only screen and (device-width: 768px) and (orientation: landscape) {
+  /* Let the section behave like a normal block */
+  .hscroll {
+    height: auto !important;
+    margin-top: -5.5rem;
+  }
+
+  .hscroll__viewport {
+    position: relative !important;
+    top: auto;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Stack panels vertically instead of horizontal track */
+  .hscroll__track {
+    display: block;          /* or flex-direction: column; */
+    transform: none !important;
+  }
+
+  .panel {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .panel--b {
+    font-size: clamp(1.3rem, 4.3vw, 1.8rem);
+  }
+
+  .panel--b span {
+    padding: 1.5rem;
+    box-shadow: -4px -4px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .panel--c {
+    font-size: clamp(1rem, 3.8vw, 1.3rem);
+    line-height: 1.4;
+    height: auto;
+    max-height: none;
+    overflow-y: visible;   /* show full philosophy text */
+    padding-right: 1.5rem;
+  }
+
+  .panel--c span {
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
+  }
+
+}
+
+/* ================================
+   MOBILE: Stack TEACHING + panel--b
+   ================================ */
+@media (max-width: 900px),
+       only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait),
+       only screen and (device-width: 768px) and (orientation: landscape) {
+
+  /* Stop horizontal scrolling on mobile */
+  .hscroll__viewport {
+    position: relative;
+    height: auto;
+    overflow: visible;
+  }
+
+  .fab-nav {
+    border: .5px solid #4B4C4C; /*outline*/
+  }
+
+  .fab-menu.is-open {
+  border: .5px solid #4B4C4C; /*outline*/
+}
+
+  /* Stack panels vertically */
+  .hscroll__track {
+    display: block !important;
+    transform: none !important;
+  }
+
+  /* Each panel becomes a normal block */
+  .panel {
+    height: auto !important;
+    min-height: auto !important;
+    width: 100% !important;
+    flex: none !important;
+  }
+
+  /* teaching stays untouched visually */
+  .panel--a {
+    -webkit-text-stroke: .5px #4B4C4C !important;
+    text-stroke: .5px #4B4C4C !important; 
+    display: flex;
+    position: sticky;
+    top: 0;
+    transform: none;   /* or adjust this once you see it */
+    align-items: center !important;
+    justify-content: center !important;
+    padding-top: 1.5rem;
+    transform: translateY(-40vh);
+    z-index: 9999;
+  }
+
+  .panel--b {
+    position: sticky;
+    top: 35vh;              /* where it “sticks” - tweak value */
+    z-index: 2;
+    margin-bottom: 10rem;    /* space for the push effect */
+    margin-top: .9rem;    /* space for the push effect */
+  }
+
+  /* panel--c follows naturally */
+  .panel--c {
+    height: auto;
+    max-height: none;
+  }
+
+  /* panel--c: rises up underneath b */
+  .panel--c {
+    position: relative;
+    z-index: 3;
+    margin-top: -9rem;      /* overlap under b */
+    padding-top: 1.5rem;      /* keep text from being hidden behind b */
+  }
+}
+
+/*Contact*/
+@media (max-width: 900px),
+       only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait),
+       only screen and (device-width: 768px) and (orientation: landscape) {
+.contact--main {
+  margin-top: 3rem;
+  }
+}
+
+@media (max-width: 900px),
+       only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait),
+       only screen and (device-width: 768px) and (orientation: landscape) {
+  .contact__links {
+    display: none !important;
+  }
+
+  .contact-quote {
+  font-size: .9rem;
+  }
+
+  .contact__copy {
+  font-size: clamp(.72rem, 1vw, .86rem);
+  text-align: justify;
+  text-align-last: center;
+  }
+
+  .contact-logo {
+  width: 230px;          /* adjust size as needed */
+}
+/*Signature*/
+.signature-container {
+  width: 150px;              /* matches typical text column width */
+  margin-left: -.5rem;   /* try between -1rem and -3rem */
+  margin-bottom: 5rem;
+  /*display: none;*/
+}
+
+.contact-form input,
+.contact-form textarea {
+  border-bottom: .5px solid #4B4C4C;
+}
+.contact-submit {
+  border: .5px solid #4B4C4C;
+}
+
+}
+
+/* MOBILE: Make TEACHING behave like ABOUT / DESIGN */
+/* FINAL OVERRIDE: mobile TEACHING centering + full shadow */
+@media (max-width: 900px),
+       only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait),
+       only screen and (device-width: 768px) and (orientation: landscape) {
+  /* TEACHING word */
+  #teaching {
+    /*display: inline-block;*/
+    /*margin: 0 auto;*/
+
+    /* big, but slightly tamer so it doesn't go totally off-screen */
+    font-size: clamp(7rem, 34vw, 14rem);
+    font-weight: 800;
+    letter-spacing: -0.0125em;
+    text-transform: lowercase;
+
+    color: transparent;
+    -webkit-text-stroke: 2px #4B4C4C;
+    text-stroke: 1.2px #4B4C4C;
+
+    position: relative;
+
+    /* allow wrapping if it needs it – removes weird shifting */
+    white-space: normal;
+
+    /* keep using your scroll-driven scale var */
+    opacity: 1;
+    transform: translateY(0) scale(var(--h2-scale, 1));
+    transform-origin: 50% 50%;  /* shrink from the true center */
+    transition:
+      transform 200ms linear,
+      opacity 800ms ease-out;
+  }
+
+  /* Shadow UNDER the word – wider than the text and centered */
+  #teaching::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;          /* anchors just under the text */
+    transform: translateX(-50%);
+    
+    /* make it visibly wider than the word */
+    width: 125%;
+    height: 30px;
+
+    background: radial-gradient(
+      ellipse at center,
+      rgba(0,0,0,0.25) 0%,
+      transparent 100%
+    );
+    filter: blur(8px);
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+/* MOBILE: raise panel--b much higher */
+@media (max-width: 900px),
+       only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait),
+       only screen and (device-width: 768px) and (orientation: landscape) {
+  .panel--b {
+    transform: translateY(-12vh);   /* raise higher (adjust as needed) */
+  }
+}
+
+/* Mobile: still big, but not ridiculous */
+@media (max-width: 900px),
+       only screen and (min-device-width: 768px) and (max-device-width: 1366px) and (orientation: portrait),
+       only screen and (device-width: 768px) and (orientation: landscape) {
+  .viewer.viewer--pdf .viewer__content {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: auto;                 /* scroll inside viewer */
+    border-radius: 0;
+  }
+
+  .viewer.viewer--pdf img.viewer__media {
+    width: 100vw !important;        /* fill width */
+    height: auto !important;        /* keep proportions */
+    max-width: 100vw !important;
+    max-height: none !important;    /* allow tall scroll, but not 600vh forced */
+    display: block;
+  }
+}
+
+/*moblie end*/
+
+/* Portrait: iPad mini + iPad + iPad Air (NOT iPad Pro) */
+@media only screen and (orientation: portrait) and (device-width: 744px) and (device-height: 1133px),
+       only screen and (orientation: portrait) and (device-width: 768px) and (device-height: 1024px),
+       only screen and (orientation: portrait) and (device-width: 810px) and (device-height: 1080px),
+       only screen and (orientation: portrait) and (device-width: 820px) and (device-height: 1180px) {
+
+.logo-container {
+    transform: translateY(-40vh); /* move logo higher */
+}
+
+.logo { 
+  width: 4.5rem; 
+  height: auto;
+  z-index: 20;
+}
+
+.logo-text {
+  font-size: clamp(1rem, 2.3vw, 1.6rem); /* smaller on iPads */;
+  font-weight: 800;
+  /*font-style: italic;*/
+  color: #4B4C4C;
+  -webkit-text-stroke: 1px #4B4C4C;
+  letter-spacing: 0.07em;
+  /*text-transform: uppercase;*/
+  margin: .2rem 0 0;
+  }
+
+.white-container {
+    bottom: 27vh;  /* moves it UP from bottom */
+    width: 90% !important;
+  }
+
+.typing-wrap {
+    font-size: 2rem !important; /* increase for mobile */
+    line-height: 1.2;
+    margin-top: 2.3rem; /* or 0 */
+  }
+
+.typing {
+    font-size: 2rem !important; /* match typing text */
+  }
+
+/* Animated SCROLL TO DISCOVER */
+.scroll-text {
+  font-size: 1rem;
+}
+ .wrap-about {
+    margin: -25vh auto 0 auto;  /* TOP  RIGHT  BOTTOM  LEFT */
+    /* try -8vh or -10vh if you want it higher */
+  }
+}
+
+/* Portrait: iPad Pro 11" + 12.9" (treated separately) */
+@media only screen and (orientation: portrait) and (device-width: 834px) and (device-height: 1194px),
+       only screen and (orientation: portrait) and (device-width: 1024px) and (device-height: 1366px) {
+
+  .logo { 
+    width: 55rem; 
+    height: auto;
+    z-index: 20;
+  }
+
+}
+
+/* ===========================
+   LANDSCAPE LOCK OVERLAY
+   (touch devices in landscape)
+   =========================== */
+
+.orientation-lock{
+  position: fixed;
+  inset: 0;
+  background: #FCFCFC;
+  z-index: 99999;
+  display: none;              /* JS will toggle this */
+  align-items: center;
+  justify-content: center;
+}
+
+/* when locked */
+body.is-landscape-locked .orientation-lock{
+  display: flex;
+}
+
+body.is-landscape-locked{
+  overflow: hidden;
+}
+
+/* Stage layout (from your attached file) */
+.orientation-lock .stage{
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:center;
+  gap: 14px;
+  padding: 14px 18px 28px;
+}
+
+/* Art fills the screen */
+.orientation-lock .art{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.orientation-lock .art svg{
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* IMPORTANT FIX:
+   Your SVG uses .st0 (in the attached file), not .st1.
+   So target .st0 for the yellow string stroke. */
+.orientation-lock .art svg .st0{
+  fill: none !important;
+  stroke: rgba(0,0,0,0.09) !important;
+  opacity: 1;
+}
+
+/* Text */
+.orientation-lock .hint{
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 3rem;
+  letter-spacing: -0.0125em;
+  font-style: italic;
+  color: #4B4C4C;
+  text-align:center;
+}
+
+.orientation-lock strong{
+  color: #ffc800;
+  font-weight: 800;
+}
+
+/* optional glow on the strong words */
+@keyframes glow {
+  0%,100% { filter: drop-shadow(0 0 0 rgba(255,200,0,0)); transform: translateY(0); }
+  50%     { filter: drop-shadow(0 6px 14px rgba(255,200,0,0.35)); transform: translateY(-2px); }
+}
+
+body.is-landscape-locked .orientation-lock .hint strong{
+  display:inline-block;
+  animation: glow 1.6s ease-in-out infinite;
+}
+
+.orientation-lock .art svg {
+  transform: translate(-9vw, 2vh);
+}
+
+.hint {
+  transform: translate(-9vw, 2vh);
+}
+
+/* LOCK OVERLAY: absolutely no scroll + true centering */
+body.is-landscape-locked,
+body.is-landscape-locked html {
+  overflow: hidden !important;
+  height: 100%;
+}
+
+body.is-landscape-locked .orientation-lock {
+  overflow: hidden !important;     /* prevent any internal scroll */
+}
+
+/* make the overlay exactly the viewport height */
+body.is-landscape-locked .orientation-lock .stage{
+  height: 100dvh;                  /* better than 100vh on mobile */
+  width: 100vw;
+  padding: 0;                      /* remove padding that causes overflow */
+  position: relative;              /* so absolute .art behaves predictably */
+}
+
+/* remove the manual shifting that causes horizontal overflow */
+body.is-landscape-locked .orientation-lock .art svg,
+body.is-landscape-locked .orientation-lock .hint{
+  transform: none !important;
+}
+
+/* keep SVG inside the viewport */
+body.is-landscape-locked .orientation-lock .art svg{
+  width: min(92vw, 1100px);
+  height: auto;
+  max-height: 70dvh;               /* ensures it never forces vertical scroll */
+}
+
+/* keep the text from pushing the layout */
+body.is-landscape-locked .orientation-lock .hint{
+  margin: 0;
+  font-size: clamp(1.2rem, 4vw, 2.2rem);  /* your 3rem can overflow small landscape */
+  line-height: 1.1;
+}
+
+/* ===========================
+   iMac 27 / Large desktop fixes
+   =========================== */
+
+@media (min-width: 1920px) {
+  .logo {
+    width: clamp(75rem, 90vw, 110rem);
+  }
+
+  .logo-text {
+  text-align: center;
+  width: clamp(55rem, 70vw, 95rem);
+  max-width: 90vw;
+    font-size: clamp(1.85rem, 1.85vw, 3.35rem);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  .site-nav {
+  width: min(2300px, 98vw);
+  left: 50%;
+  transform: translateX(-50%);
+  }
+
+  .nav-link {
+  width: auto;
+  padding: .2rem 6.72rem;
+  }
+
+  .typing-wrap {
+  font-size: 2.3rem;
+  margin: 5.4rem 0 0 0; /* push it slightly lower */
+  }
+
+  .typing {
+  font-size: 2.3rem;
+  }
+
+  .scroll-fill-text {
+      font-size: clamp(.5rem, 1.9vw, 2.6rem) !important; /* reduce desktop max-size */
+      line-height: 1.28 !important;  /* tighter and more elegant */
+    }
+
+  .wrap-design {
+  margin-top: -7rem !important; /* tighten spacing to about */
+  }
+
+  .watch-reveal {
+    font-size: clamp(2rem, 3vw, 4rem); 
+    line-height: 2.7rem;
+    padding: 3rem 0 3rem 0;
+  }
+
+  .section-header .page-title {
+  position: relative;
+  top: -12rem;        /* adjust: -2rem to -8rem */
+  }
+
+  .services {
+  position: relative;
+  top: -12rem;        /* adjust: -2rem to -8rem */
+  }
+
+  .research_title {
+    font-size: 16rem; 
+  }
+  .principles__sticky {
+  margin-top: -10rem;
+  }
+
+  .panel--a { 
+    font-size: 28.5rem;
+  }
+
+  .panel--b { 
+    font-size: 4.65rem;
+  }
+
+  /* ---------------------------------
+   Contact: full-bleed container (match contact--studio)
+   This overrides the global content width shell which was constraining .contact--main.
+   --------------------------------- */
+#contact .contact--main{
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}
+
+/* Keep footer strip full width too */
+#contact .contact--studio{
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}
+
+  #contact {
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  #contact .contact-wrapper {
+  max-width: 1600px; /* or 1600px for iMac */
+  margin-inline: auto;
+  padding-inline: clamp(24px, 6vw, 96px);
+  } 
+
+  .contact__links {
+  padding-left: 10%;
+  }
+
+  .contact__link:hover::after,
+  .contact__link:focus-visible::after {
+  transform: scaleX(2.4);
+  }
+
+   .panel--c {
+    font-size: 2.7rem;     /* slightly smaller text */
+    line-height: 1.20;     /* thinner visual line weight */
+  }
+
+  .panel--c span {
+    font-size: 1.65rem;
+    letter-spacing: 0.1em;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

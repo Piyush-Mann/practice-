@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piyush Mann</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="script.js" defer></script>
+  
+    <!-- GSAP + ScrollTrigger (CDN) -->
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  </head>
+<body>
+<!-- Landscape lock overlay (shows only on touch devices in landscape) -->
+<div class="orientation-lock" id="orientationLock" aria-hidden="true">
+  <div class="stage">
+    <div>
+      <div class="art" id="art">
+        <svg version="1.1" id="_x3C_Layer_x3E_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+        y="0px" viewBox="0 0 3470 1735" style="enable-background:new 0 0 3470 1735;" xml:space="preserve">
+        <style type="text/css">
+        .st0{fill:none;stroke:#000000;stroke-width:6.94;stroke-miterlimit:10;}
+        </style>
+        <path class="st0" d="M3470,1225.6"/>
+        <path class="st0" d="M1645.1,832.4c227.2-192.9,546.6,1.7,150.7,81.6c-200.2,40.4-304.1-333.4,15.2-382
+        c191.2-29.1,290.9,231.4,174.9,373.4c-196.2,285-778.2,10.8-570.2-281.2c109.8-108.8,286.9-18.6,334.4,111.1
+        c52.9,114,32.5,243.8,53.3,364.4c12.6,104.5,123.1,216.1,227.7,152.2c174.1-131.1-135.1-623-381.1-341
+        c-226,245.8-488.9-32.6-288.2-267.4c62.8-70.7,273.3-195,347.6-97.6c23.3,40-2.7,89.7-28.1,128.4
+        c-56.6,107.1-202.6,242.6-175.3,366.9c64.2,163.8,254.4,52.3,370.9-19.8c214.1-131.3,568.1-377.3,104-407
+        c-126-8.9-203.2,132.3-173.5,245c17.7,84.2,74.7,159.5,74.8,245.5c-0.4,171.6-206.9,259.9-350.4,188
+        c-526.1-344.2-32.7-863.7,505-397.2c101.3,81,185.5,22.4,158.7-102.8c-10.7-243.4-538.5-566-489.2-216.3
+        c31,135.3,124.5,255.1,248.1,318c115,45.2,178.9,114.7,112.8,237c-263.8,408.4-802.8,31.5-498.2-372.6
+        c65-99.9,13.7-129.4-95.3-171.4C1051,443.7,1374.3,993.3,1715,920.3c156.2-36.2,372.8-221.2,499.7-61.5
+        c77.6,121.5-32.7,232.5-162.3,192c-53.6-13.8-102.3-42.1-155-59.1c-217.7-85.6-517.8,176.4-391.5,344.5
+        c107,142.3,331.7,72.5,346.7-48.1c10.7-227.8-290.4-352.9-165.8-620.8c339-600.2,814,161.6-324.7,284
+        c-485.9-25.6,196-763.8,486.2-393.6c115.8,122.8,131,438.9,44.2,581.9c-93.3,114.9-280.8,140.2-409,74.1
+        C1008.5,887,1920.9,369.9,2156.9,757c99.5,136.3,31.9,464.8-175.5,435.1c-92-26.5-74.2-141.3-90.5-224.2
+        c-37.1-160.8-90.4-579.2-365.1-562.9c-102.6,6.1-165.6,93.8-177.8,179.2c-23.2,120.5-46.3,241.1-69.4,361.6
+        c-8.8,45.9-17.6,94-4.9,139.1c142.5,300.8,469.1-1.3,682.6-33.2c96.1-15.9,190.4,88.3,143.9,187.8
+        c-150.2,278.3-480.8,33.3-365.9-214.3c64.4-134.3,302.2-392,275.4-552c-32.7-172.7-282.9-177.7-348.2-13.7
+        c-26,60.5-12.6,123.6-14.1,189.4c-12.9,470,18.2,680.2,79.3,801.3"/>
+        </svg>
+      </div>
+      <p class="hint">
+        Please <strong>rotate</strong> your <strong>device</strong>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="cursor" id="cursor"></div>
+<!-- Hero -->
+<div class="background-wrapper">
+    <section class="top-section full-screen-section" id="hero">
+      <div class="logo-container">
+        <img src="media/Logo_Piyush_Mann.png" alt="Logo" class="logo" id="logo" />
+        <h1 class="logo-text">Where Relational Ethics Shape Creative Pedagogy and Digital Design</h1>
+      </div>
+      <div class="white-container">
+        <div class="inner-outline-box">
+          <!-- Primary Navigation -->
+        <nav class="site-nav" role="navigation" aria-label="Primary">
+          <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="sr-only">Menu</span>
+          </button>
+
+          <ul id="nav-list" class="nav-list">
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#design" class="nav-link">Design</a></li>
+            <!-- <li><a href="#expertise" class="nav-link">Expertise</a></li> -->
+            <li><a href="#research"   class="nav-link">Research</a></li>
+            <li><a href="#teaching" class="nav-link">Teaching</a></li>
+            <li><a href="#contact"  class="nav-link cta">Contact</a></li>
+          </ul> 
+        </nav>
+          <p class="typing-wrap" aria-live="polite">I design ethical and relational digital experiences.&nbsp;<span class="typing"></span></p>
+        </div>
+        <div class="scroll-discover">
+  <span class="scroll-text">SCROLL TO <a href="#design">DESIGN WORK</a></span>
+</div>
+</div>
+    </section>
+<!-- Hero Section Ends -->
+
+<!-- <div class="degrees">PhD (Practice-Based), <span>(ARU)</span> Master of Design <span>(UofA), </span> Bachelor of Design <span>(OCADU)</div> -->
+
+<!-- <section class="note-spacer">
+  <div class="note-box">
+  <p>Identity is not a fixed biography; it is shaped through the people, teachings, and stories we honour.</p>
+  </div>
+</section> -->
+<!-- About -->
+    <section class="wrap-about">
+    <section class="animated-section-titles">
+      <section class="full-screen-section" id="about">
+          <h2>about</h2>
+    <!-- Split your paragraph into spans. Each span becomes one line. -->
+    <p class="scroll-fill-text"> 
+      <span class="reveal-line">I'm visual communication designer, educator,</span>
+      <span class="reveal-line">and ethical design researcher working across creative</span>
+      <span class="reveal-line">pedagogy, UX design, and digital ethics. My work</span>
+      <span class="reveal-line">blends visual communication with ethical inquiry,</span>
+      <span class="reveal-line">positioning design as a site of relational accountability,</span>
+      <span class="reveal-line">cultural awareness, and presence.</span>
+      <br>
+      <span class="reveal-line">Grounded in decolonial design, Indigenous data</span>
+      <span class="reveal-line">sovereignty, and community-guided methodologies,</span>
+      <span class="reveal-line">my practice is shaped through long-term collaboration</span>
+      <span class="reveal-line">with Indigenous Elders and knowledge keepers. I</span>
+      <span class="reveal-line">explore how digital systems can uphold consent,</span>
+      <span class="reveal-line">transparency, and cultural integrity by integrating</span>
+      <span class="reveal-line">human-centered design with Indigenous epistemologies.</span>
+      <br>
+      <span class="reveal-line">My scholarship spans design, digital humanities, and</span>
+      <span class="reveal-line">Indigenous data sovereignty, extending into decolonial</span>
+      <span class="reveal-line">design ethics, AI governance, and critical knowledge</span>
+      <span class="reveal-line">infrastructures. I holds a Practice-Based PhD in Graphic</span>
+      <span class="reveal-line">Design and Digital Media from Anglia Ruskin University,</span>
+      <span class="reveal-line">an MDes from he University of Alberta, and a BDes</span>
+      <span class="reveal-line">from OCAD University.</span>
+    </p>
+</section>
+    </section>
+    </section>
+<!-- About Sections Ends -->
+
+<!-- Design -->
+    <main class="wrap-design">
+    <header class="page-head scroll-reveal" id="design">
+      <div class="scroll-reveal">
+          <h2>design</h2>
+      </div>
+    </header>
+
+    <section class="columns scroll-reveal">
+      <article class="col video1" data-type="video" data-src="media/video1.mp4" tabindex="0" aria-label="Play video">
+        <p><span>Ethical Motion Graphics</span><br><br>Reimagined immigration law through story-driven, ethical motion-graphics for clearer public understanding.<br><br><br><span class="click">Click to View Case Study</span></p>
+      </article>
+
+      <article class="col powerpoint" data-type="image" data-src="media/image2.jpg" tabindex="0" aria-label="Open image case study">
+        <p><span><br>Decolonial UX Methodology</span><br><br>Designing UX/UI and data ontology for marginalized communities by exposing positivist design patterns and developing a relational, consent-centered methodological framework.<br><br><br><span class="click">Click to View Case Study</span></p>
+      </article>
+
+      <article class="col user" data-type="video" data-src="media/L&D.mov" tabindex="0" aria-label="Play video">
+        <p><span>Immigration Compliance L&D Framework</span><br><br>An instructional design framework helping HR teams navigate immigration compliance through experiential learning.<br><br><br><span class="click">Click to View Case Study</span></p>
+      </article>
+
+      <article class="col layout" data-type="image" data-src="media/image4.jpg" tabindex="0" aria-label="Open image case study">
+         <p><span><br>Organizational Rebrand Strategy</span><br><br>A strategic rebranding initiative aligning Canadian and international brands with changing markets, stakeholder needs, and future vision.<br><br><br><span class="click">Click to View Case Study</span></p>
+      </article>
+    </section>
+    </main>
+  <div id="viewer" class="viewer" aria-hidden="true" role="dialog" aria-modal="true">
+    <button class="viewer__close" type="button" aria-label="Close (Esc)">&times;</button>
+    <div class="viewer__content" id="viewerContent" aria-live="polite"></div>
+  </div>
+  <!-- <div class="wrap-quote">
+        <p><span>design</span> is inherently <span>relational;</span> an ethos revealed through <span class="under"> empathy,</span>where <span> emotion</span> becomes<span> experience</span> and experience becomes<span> memory.</span></p>
+  </div> -->
+<section aria-label="relational design quote">
+      <p class="watch-reveal word" data-reveal> 
+        <span class="reveal-line">My design process</span>
+        <span class="reveal-line">is relational: I begin with</span>
+        <span class="reveal-line">empathy, draw out emotion,</span>
+        <span class="reveal-line">shape it into experience,</span>
+        <span class="reveal-line">and craft that experience</span>
+        <span class="reveal-line">into lasting memory.</span>
+      </p>
+</section>
+  <header class="section-header">
+    <div class="container">
+      <h2 class="page-title reveal"><span>My</span>Practices</h2>
+    </div>
+  </header>
+  <main class="services">
+    <div class="container services-grid">
+      <!-- Research -->
+      <section class="service-card reveal">
+        <div class="card-rule" aria-hidden="true"></div>
+        <div class="card-icon" aria-hidden="true">
+          <span class="dot"></span>
+        </div>
+        <h2><span class="numbers">01</span><br><br>Strategic Communication<br>& Branding</h2>
+        <ul class="square-ul"><br>
+          <p>The craft of translating emotion into visual clarity—expressed through:</p>
+          <li>Developing brand strategy that aligns purpose, identity, and long-term vision</li>
+          <li>Crafting precise brand positioning and messaging that communicate value with clarity and emotional depth</li>
+          <li>Shaping compelling narratives that connect audiences through meaning rather than marketing</li>
+          <li>Designing expressive visual storytelling that translates ideas into memorable experiences</li>
+          <li>Advising on identity and culture to help organizations express who they are—and who they aspire to be</li>
+          <li>Designing cohesive brand identities and logo systems</li>
+          <li>Creating expressive visual languages</li>
+          <li>Leading art direction and creative direction across media</li>
+          <li>Crafting refined typography, digital layout, and publication design</li>
+          <li>Creating polished pitch decks and executive presentations that move decision-makers</li>
+          <li>Building short-form visual content creation for social platforms (Instagram, TikTok)</li>
+          <li>Developing evocative campaign concepts</li>
+        </ul>
+      </section>
+      <!-- Strategy -->
+      <section class="service-card reveal">
+        <div class="card-rule" aria-hidden="true"></div>
+        <div class="card-icon" aria-hidden="true">
+          <span class="grid"></span>
+        </div>
+        <h2><span class="numbers">02</span><br><br>Digital Design<br>& Experience</h2>
+        <ul><br>
+          <p>Where emotion becomes experience—shaped through thoughtful digital craft and intentional interaction.</p>
+          <li>Conducting UX research that reveals user needs, behavioural patterns, and meaningful opportunities for design</li>
+          <li>Designing and developing websites that merge form, function, accessibility, and emotional resonance</li>
+          <li>Creating human-centred UX/UI design systems that prioritize clarity, responsiveness, and relational engagement</li>
+          <li>Building immersive interaction design that guides attention, behaviour, and feeling</li>
+          <li>Structuring information through thoughtful information architecture that supports purposeful navigation</li>
+          <li>Transforming ideas into reality through prototyping that tests flow, behaviour, and usability</li>
+          <li>Mapping holistic user journeys that honour how people move, decide, and connect with digital environments</li>
+          <li>Developing coherent content structures and narrative flows that communicate with intention and depth</li>
+          <li>Bringing digital spaces to life through motion design that add rhythm, clarity, and delight</li>
+        </ul>
+      </section>
+      <!-- Design -->
+      <section class="service-card reveal">
+        <div class="card-rule" aria-hidden="true"></div>
+        <div class="card-icon" aria-hidden="true">
+          <span class="star"></span>
+        </div>
+        <h2><span class="numbers">03</span><br><br>Ethical &<br>Relational Design</h2>
+        <ul><br>
+          <p>Where strategy becomes stewardship and creativity becomes responsibility.</p>
+          <li>Guiding relational design consultation grounded in care, accountability, and community-defined values</li>
+          <li>Conducting decolonial UX and ethical AI reviews to identify risks, biases, and pathways for equity</li>
+          <li>Integrating Indigenous data sovereignty principles into digital systems, workflows, and governance</li>
+          <li>Providing ethical data practice guidance aligned with OCAP®, CARE, FPIC, and UNDRIP</li>
+          <li>Offering research ethics advisory for projects involving sensitive knowledge or community collaboration</li>
+          <li>Facilitating Community-Based Participatory Design (CBPR) processes that honour shared authority and ongoing consent</li>
+          <li>Conducting cultural sensitivity reviews to ensure work aligns with values, context, and community expectations</li>
+          <li>Leading ethical creative direction for community organizations, NGOs, and equity-focused initiatives</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+<section class="principles" aria-label="Live by Principles — Pinned Two Columns">
+  <div class="principles__sticky">
+    <div><p class="research_title" id="research">Research</p></div>
+    <div class="principles__grid">
+      <!-- LEFT -->
+      <aside class="principles__left">
+        <p id="p-eyebrow" class="principles__eyebrow"></p>
+        <h2 id="p-title" class="principles__title"></h2>
+        <p id="p-intro" class="principles__intro"></p>
+      </aside>
+      <!-- RIGHT -->
+      <div class="principles__right">
+        <p id="p-body" class="principles__body">
+        </p>
+        <p id="p-aside" class="principles__aside"></p>
+      </div>
+    </div>
+  </div>
+  <div class="principles__rule" aria-hidden="true"></div>
+</section>
+<!-- Horizontal Section 1 -->
+  <div id="teaching-anchor"></div>
+  <section class="hscroll" data-hscroll> 
+    <div class="hscroll__viewport">
+      <div class="hscroll__track">
+      <article class="panel panel--a" id="teaching">Teaching</article>
+      <article class="panel panel--b">
+    <span>As a post-secondary educator, I centre creative problem-solving,
+    <span class="underline-on-scroll">creative intelligence</span>, and
+    <span class="underline-on-scroll">perpetual intelligence</span>: the lifelong capacity
+    to keep learning, adapting, and making meaning in complex contexts. My teaching
+    practice is grounded in designing learning experiences that actively strengthen
+    these human capacities through an empathy and example-based learning approach.
+  </span>
+</article>
+        <article class="panel panel--c"><span class="underline-on-scroll">Teaching Philosophy</span><br>My teaching is grounded in empathy-based learning. Empathy is essential to education because it allows us to understand the needs, experiences, and emotional realities of our students. When students feel seen, respected, and supported, the classroom becomes a space of safety and possibility. I have always understood teaching as parallel to design. Designers create meaning through empathy—by entering the world of the end user and shaping experiences that resonate with their lives. Teaching operates in the same way: it requires designing learning experiences that are relational, intuitive, and responsive to the learner.<br><br>To support this, I use example-based learning, a pedagogy that helps students understand complex ideas through themes, contexts, and references they already recognize. When students encounter material through examples rooted in the familiar, they grasp not only the concept but its relevance. This reinforces empathy—because it affirms students’ lived experiences as valid sites of knowledge—and it strengthens practice-based learning by connecting theory to real situations they might face as emerging designers. In my classroom, examples are not add-ons but bridges: they translate abstract ideas into something tangible, meaningful, and memorable.<br><br>Empathy-based learning also aligns with the nurturing qualities found in many Indigenous knowledge systems, particularly the idea of the “renewal of the feminine spirit,” where teaching emerges from care, reciprocity, and emotional intelligence. I work to cultivate a respectful, open environment where students’ voices matter and where dialogue becomes part of the learning process. In practice-based fields like design and digital media, I believe educators function as mentors, and students should be treated as junior practitioners. Teaching them as practitioners-in-training builds trust, accountability, and confidence. It encourages students to see themselves not simply as learners but as contributors with growing agency and responsibility.<br><br>Ultimately, I aim to build an inclusive, relational learning environment—one where empathy, example-based understanding, and practice-based exploration come together. When these elements intersect, students feel supported and motivated, and they begin to see learning as a collaborative, transformative experience rather than transactional. </article>
+      </div>
+    </div>
+  </section>
+<section id="contact">
+  <div class="contact contact--main">
+    <div class="contact-wrapper">
+      <div class="contact-right">
+        <img src="media/Logo_Piyush_Mann.png" alt="Logo" class="contact-logo">
+        <h2 class="contact-title">
+          Let’s think together to align creativity with purpose, resolve complexity through empathy, and create solutions rooted in relational design...
+        </h2>
+      <div class="contact-line"></div>
+      <div class="contact-quote"><span class="weight-800">...nothing exists in isolation.</span> Every design, every creative decision affects someone, so <span class="underline-on-scroll">creation</span> must be <span class="underline-on-scroll">relational.</span></div>
+      <!-- Signature container -->
+      <div class="signature-container">
+      <!-- Inline SVG path from signature.html -->
+      <svg id="signature-svg" viewBox="0 0 960.1 540">
+      <path id="signature-path"
+            fill="none"
+            stroke="#4b4c4c"
+            stroke-width="12"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M96.6,259.5c0,0-50.8,6.8,5.6-73.4s145.7-68.9,145.7-68.9s63.1-0.5,65.5,47.4c1.1,40.7-26.5,64.1-32.5,70
+  c-5.9,5.9-78.8,66.9-124.5,44.9s60.1-106.7,45.7-83.9c-14.4,22.9-89.8,196.5-85.6,172.8s14.2-26.2,26.9-49.9s123.7-59.4,107.7-29.7
+  c-17.2,31.9-16.1,42.4-5.1,39.8c11-2.5,49.1-29.6,44.9-31.3S274,313.4,279,322.7c5.1,9.3,49.4-21.7,45.2-25.1
+  c-4.2-3.4-15.5,35.3-18.9,45.5s-40.9,74.5-50,85.3c-9,10.7-36.2,49.5-55.4,32.8c-22.3-19.3,30-60.2,30-60.2s127.9-102.2,125.9-104.2
+  s-9.3,5.9-10.7,14.4c-1.4,8.5-3.1,19.5,6.8,15.2c9.9-4.2,37-29.4,34.2-30.8s-13.3,15.2-10.4,22.9c2.8,7.6,6.8,12.2,26.5-3.1
+  c19.8-15.2,40.1-24.6,36.1-27.1s-3.1,0.3-2.5,7.3c0.6,7.1,5.3,25.7-0.3,31.6c-5.6,5.9-22.6,11.6-22.6-13.5s55.1-9,58.7-14.7
+  c3.7-5.6-2-10.7-2.8-2.5s1.4,27.1-4,27.4s20-29.2,28.7-37.7c8.8-8.5,13.1-4.7,12.2,7.2s-6.8,28.2-5.4,31.6s20,0,14.7-1.4
+  c-5.4-1.4-46.7-18.5-39.5-32.3c9.1-17.5,80.7-133.8,103.1-145.8c2.8-1.5,10.2-3.1,14.7,0.4c3.2,2.4,3.8,5.6,4,8.7
+  c0.8,14.5-8.1,33.5-10.9,39.7c-2.8,6.2-53.7,118.1-55.4,126c-1.7,7.9,0,13.3,5.1,8.2c5.1-5.1,89.5-121.4,99.1-131.9
+  c9.6-10.4,18.8-18.8,25.7-18.4c6.3,0.4,9.3,9,2.5,26.3c-6.8,17.2-54.8,120.8-50,117.5c4.8-3.4,67.9-86.7,77.9-98.8
+  c9.7-11.6,18.6-8.2,16.1,2.8s-31.3,81-33.6,89c-2.3,7.9-8.8,30.5,0.6,37.8s19.4,16,23.2,23.4c2.9,5.8,4.2,16.4-20.9,10.7
+  c-25.1-5.6-59-11.9-100.5-10.2c-41.5,1.7-196.2,7.1-271.6,71.4c-7,6-8.6,8.9-7.9,11.3c7.8,30.1,361.8-80.4,421.6-133
+  c3.6-3.1,28.9-25.4,24-35.2c-1.4-2.7-5.4-5.1-9.5-5.9c-3.1-0.6-7,0-11.7,2.9c-11.6,7.1-22.2,21.8-23.7,28.8c-1.4,6.3,0.2,13,13,11.9
+  c11.2-1,29.6-28.2,25.7-31.1s-6.2,18.1-2.8,22.3c3.4,4.2,5.9,5.4,12.4,1.4s35.6-28.5,32.5-30.3s-19.5,37.4-13.8,30.9
+  s23.2-31.6,31.3-30.9s7.7,9.9,4.9,18.7c-2.8,8.8-2.3,14.8,5.3,10.8s32.2-22,31.1-26s-9.3,5.6-10.4,15.8c-1.1,10.2,0.8,16.7-2,15
+  s4.9-14.1,12.5-20.6s14.4-13.3,20-12.1c5.6,1.1,5.9,5.8,4.5,10.9s-8.1,14.8-0.8,17.9c3,1.3,6.6,4,40.1-13.11"/>
+          </svg>
+          </div>
+      </div>
+
+      <form action="https://formspree.io/f/mpqjenkz" method="POST" class="contact-form">
+
+  <input type="text" name="name" placeholder="NAME" required>
+
+  <input type="email" name="email" placeholder="E-MAIL" required>
+
+  <input type="text" name="subject" placeholder="SUBJECT">
+
+  <textarea name="message" placeholder="MESSAGE..." required></textarea>
+
+  <button type="submit" class="contact-submit">
+    SEND MESSAGE
+  </button>
+
+</form>
+    </div>
+  </div>
+
+  <div class="contact contact--studio">
+    <div class="contact__bottom">
+      <nav class="contact__links" aria-label="Footer links">
+        <a class="contact__link" href="#logo">home</a>
+        <a class="contact__link" href="#about">about</a>
+        <a class="contact__link" href="#design">design</a>
+        <a class="contact__link" href="#research">research</a>
+        <a class="contact__link" href="#teaching-anchor">teaching</a>
+      </nav>
+      <p class="contact__copy">©2025 Piyush Mann. Committed to Ethical, Relational Creation.</p>
+    </div>
+  </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" referrerpolicy="no-referrer"></script>
+
+<!--  -->
+<!-- Floating Action Button -->
+<div class="fab-nav" id="fabToggle" aria-haspopup="true" aria-expanded="false">
+  <div class="fab-lines">
+    <span class="line"></span>
+    <span class="line"></span>
+  </div>
+</div>
+<!-- Compact FAB menu (instead of full-screen overlay) -->
+<nav class="fab-menu" id="fabMenu" aria-label="Quick navigation">
+  <a href="#logo" class="fab-menu__link">Home</a>
+  <a href="#about"   class="fab-menu__link">About</a>
+  <a href="#design"  class="fab-menu__link">Design</a>
+  <a href="#research" class="fab-menu__link">Research</a>
+  <a href="#teaching-anchor" class="fab-menu__link">Teaching</a>
+  <a href="#contact" class="fab-menu__link">Contact</a>
+</nav>
+<!--  -->
+
+<script>
+  // Fallback init if main script hasn't run yet
+  document.addEventListener('DOMContentLoaded', function(){
+    if (!document.body.classList.contains('nav-ready')) {
+      document.body.classList.add('nav-ready');
+    }
+  });
+</script>
+<!-- Page transition overlay -->
+<div class="page-transition">
+  <div class="page-transition__inner"></div>
+</div>
+</body>
+</html>
